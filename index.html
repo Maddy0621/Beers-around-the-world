@@ -4,116 +4,83 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Beers Around the World</title>
-  <style>
-    :root {
-      --bg: #0f1221;
-      --card: #171a2b;
-      --text: #eef0f6;
-      --muted: #b8bccb;
-      --accent: #f7c948;
-      --accent-2: #7cc5ff;
-    }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: radial-gradient(1200px circle at 10% -10%, #1c2140, transparent),
-                  radial-gradient(1000px circle at 110% 0%, #122a2a, transparent),
-                  var(--bg);
-      color: var(--text);
-    }
-    header {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px 20px;
-      display: grid;
-      gap: 16px;
-    }
-    .title {
-      font-size: clamp(28px, 5vw, 44px);
-      letter-spacing: 0.5px;
-      margin: 0;
-    }
-    .subtitle {
-      color: var(--muted);
-      font-size: clamp(15px, 2.5vw, 18px);
-      line-height: 1.6;
-      max-width: 900px;
-      margin: 0;
-    }
-    .card {
-      background: color-mix(in oklab, var(--card) 92%, black);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 18px;
-      padding: 18px 18px;
-      display: grid;
-      gap: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-    }
-    .dedication {
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--text);
-      white-space: pre-line;
-    }
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 4px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(180deg, var(--accent), #f2b705);
-      color: #1a1a1a;
-      font-weight: 600;
-      padding: 10px 14px;
-      border-radius: 999px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 6px 18px rgba(247,201,72,0.35);
-    }
-    .btn.secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,0.14);
-      box-shadow: none;
-    }
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px 40px;
-      display: grid;
-      gap: 14px;
-    }
-    .map-wrap {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 18px;
-      overflow: hidden;
-      height: min(75vh, 760px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    footer {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px 40px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .tiny {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-  </style>
+<style>
+  :root {
+    --bg: #f6f1e7;
+    --card: #ffffff;
+    --text: #1f2328;
+    --muted: #5b6168;
+    --accent: #c47a2c;   /* warm amber */
+    --accent-2: #2a6f7a; /* teal */
+  }
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+      radial-gradient(900px circle at 0% -10%, #efe2c9, transparent),
+      radial-gradient(900px circle at 110% 0%, #e6f0ef, transparent),
+      var(--bg);
+    color: var(--text);
+  }
+  header, main, footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  header { padding-top: 44px; padding-bottom: 18px; display: grid; gap: 14px; }
+  .title {
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: clamp(30px, 5vw, 46px);
+    letter-spacing: 0.3px;
+    margin: 0;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: clamp(15px, 2.5vw, 18px);
+    line-height: 1.65;
+    max-width: 900px;
+    margin: 0;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 18px;
+    padding: 18px;
+    display: grid;
+    gap: 10px;
+    box-shadow: 0 8px 22px rgba(45,35,20,0.12);
+  }
+  .dedication {
+    font-size: 17px;
+    line-height: 1.75;
+    white-space: pre-line;
+  }
+  .buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg, #e0a24d, var(--accent));
+    color: #1a1a1a; font-weight: 700;
+    padding: 10px 14px; border-radius: 999px; text-decoration: none; border: none;
+    box-shadow: 0 6px 16px rgba(196,122,44,0.28);
+  }
+  .btn.secondary {
+    background: transparent; color: var(--text);
+    border: 1px solid rgba(0,0,0,0.12); box-shadow: none;
+  }
+  main { padding-top: 0; padding-bottom: 44px; display: grid; gap: 14px; }
+  .map-wrap {
+    background: var(--card);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 18px; overflow: hidden;
+    height: min(75vh, 760px);
+    box-shadow: 0 8px 22px rgba(45,35,20,0.12);
+  }
+  iframe { width: 100%; height: 100%; border: 0; }
+  footer { padding-bottom: 40px; color: var(--muted); font-size: 14px; }
+  .tiny { font-size: 13px; color: var(--muted); line-height: 1.6; }
+</style>
+
 </head>
 
 <body>
@@ -128,9 +95,11 @@
       <div class="dedication">
 For Dad, the willing star of “Beers Around the World,”
 and for Mom, the photographer, storyteller, and keeper of the moment.
-This book is my thank-you for a lifetime of adventures —
-and a wish for many more travels, laughs, and raised glasses together.
-With all my love.
+Thank you for showing me that joy lives in the small rituals:
+ a view, a table, and a glass raised together.
+
+This map is my way of celebrating the life you’ve built 
+and the places you’ve explored.
       </div>
 
       <div class="buttons">
